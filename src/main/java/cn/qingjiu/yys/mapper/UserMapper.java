@@ -1,8 +1,11 @@
 package cn.qingjiu.yys.mapper;
 
 import cn.qingjiu.yys.entity.User;
+import org.apache.ibatis.annotations.Mapper;
 
+@Mapper
 public interface UserMapper {
+
     int deleteByPrimaryKey(Integer userId);
 
     int insert(User record);

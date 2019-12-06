@@ -1,7 +1,9 @@
 package cn.qingjiu.yys.mapper;
 
 import cn.qingjiu.yys.entity.Shishen;
+import org.apache.ibatis.annotations.Mapper;
 
+@Mapper
 public interface ShishenMapper {
     int deleteByPrimaryKey(Integer id);
 
