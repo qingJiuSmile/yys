@@ -129,7 +129,7 @@
 	    });
 	    $('input[name="login"],input[name="pwd"]').keyup(function () {
 	        var Len = $(this).val().length;
-	        if (!$(this).val() == '' &amp;&amp; Len >= 5) {
+	        if (!$(this).val() == '' && Len >= 5) {
 	            $(this).next().animate({
 	                'opacity': '1',
 	                'right': '30'
@@ -237,7 +237,7 @@
 				url: 'Ajax/Login',  
 				status: 200,  
 				responseTime: 50,          
-				responseText: {"Status":"ok","Text":"登陆成功&lt;br />&lt;br />欢迎回来"}
+				responseText: {"Status":"ok","Text":"登陆成功<br /><br />欢迎回来"}
 			}); 
 			$.mockjax({  
 				url: 'Ajax/LoginFalse',  
