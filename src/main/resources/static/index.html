@@ -47,7 +47,7 @@
 	      </div>
 	      <input name="code" placeholder='验证码' maxlength="4" type='text' name="ValidateNum" autocomplete="off">
 	      <div class='validation' style="opacity: 1; right: -5px;top: -3px;">
-          <canvas class="J_codeimg" id="myCanvas" onclick="Code();">对不起，您的浏览器不支持canvas，请下载最新版浏览器!</canvas>
+          <canvas class="J_codeimg" id="myCanvas" onclick="Code();">对不起，您的浏览器不支持canvas，请下载chrome最新版浏览器!</canvas>
 	      </div>
 	    </div>
 	    <div class='login_fields__submit'>
@@ -57,7 +57,7 @@
 	  <div class='success'>
 	  </div>
 	  <div class='disclaimer'>
-	    <p>欢迎登陆后台管理系统</p>
+	    <p>欢迎登陆</p>
 	  </div>
 	</div>
 	<div class='authent'>
@@ -181,7 +181,7 @@
 	                //登陆
 	                var JsonData = { login: login, pwd: pwd, code: code };
 					//此处做为ajax内部判断
-					var url = "";
+                    var url = "";
 					if(JsonData.login == truelogin && JsonData.pwd == truepwd && JsonData.code.toUpperCase() == CodeVal.toUpperCase()){
 						url = "Ajax/Login";
 					}else{
@@ -217,7 +217,7 @@
 	                                            $('.success').fadeIn(1000);
 	                                            $('.success').html(data.Text);
 												//跳转操作
-												
+												location.href = "http://www.baidu.com";
 	                                        } else {
 	                                            AjaxErro(data);
 	                                        }
@@ -249,7 +249,7 @@
 				url: 'Ajax/LoginFalse',  
 				status: 200,  
 				responseTime: 50,          
-				responseText: {"Status":"Erro","Erro":"账号名或密码或验证码有误"}
+				responseText: {"Status":"Error","Error":"账号名或密码或验证码有误"}
 			});   
 		}
     </script>

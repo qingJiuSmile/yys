@@ -13,23 +13,23 @@
             <property name="suppressAllComments" value="true" />
         </commentGenerator>
         <jdbcConnection driverClass="org.postgresql.Driver"
-                        connectionURL="jdbc:postgresql://192.144.233.112:5432/postgres"
+                        connectionURL="jdbc:postgresql://localhost:5432/postgres"
                         userId="postgres"
                         password="root">
         </jdbcConnection>
 
-        <javaModelGenerator targetPackage="cn.qingjiu.yys.entity" targetProject="D:/ideaProject/yys/src/main/java">
+        <javaModelGenerator targetPackage="cn.qingjiu.yys.entity" targetProject="D:/J-USER/desktop7/my/yys/src/main/java">
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
 
-        <sqlMapGenerator targetPackage="mybatis.mapper"  targetProject="D:/ideaProject/yys/src/main/resources">
+        <sqlMapGenerator targetPackage="mybatis.mapper"  targetProject="D:/J-USER/desktop7/my/yys/src/main/resources">
         </sqlMapGenerator>
 
-        <javaClientGenerator type="XMLMAPPER" targetPackage="cn.qingjiu.yys.mapper"  targetProject="D:/ideaProject/yys/src/main/java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="cn.qingjiu.yys.mapper"  targetProject="D:/J-USER/desktop7/my/\yys/src/main/java">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
 
-        <table tableName="shishen"  enableCountByExample="false"
+        <table tableName="login_user——"  enableCountByExample="false"
                enableDeleteByExample="false" enableUpdateByExample="false"
                selectByExampleQueryId="false" enableSelectByExample="false">
         </table>
