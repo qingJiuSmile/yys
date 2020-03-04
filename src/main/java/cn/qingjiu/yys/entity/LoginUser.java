@@ -18,7 +18,7 @@ public class LoginUser {
 
     private String userNo;
 
-    private Integer userStart;
+    private Integer userState;
 
     private String password;
 

@@ -4,13 +4,13 @@
   <resultMap id="BaseResultMap" type="cn.qingjiu.yys.entity.LoginUser">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
-    <result column="user_start" jdbcType="SMALLINT" property="userStart" />
+    <result column="user_state" jdbcType="SMALLINT" property="userState" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="password" jdbcType="VARCHAR" property="password" />
     <result column="user_no" jdbcType="VARCHAR" property="userNo" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, user_name, user_start, create_time,password,user_no
+    id, user_name, user_state, create_time,password,user_no
   </sql>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from login_user
@@ -25,8 +25,8 @@
       <if test="userName != null">
         user_name,
       </if>
-      <if test="userStart != null">
-        user_start,
+      <if test="userState != null">
+        user_state,
       </if>
       <if test="createTime != null">
         create_time,
@@ -39,8 +39,8 @@
       <if test="userName != null">
         #{userName,jdbcType=VARCHAR},
       </if>
-      <if test="userStart != null">
-        #{userStart,jdbcType=SMALLINT},
+      <if test="userState != null">
+        #{userState,jdbcType=SMALLINT},
       </if>
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
@@ -53,8 +53,8 @@
       <if test="userName != null">
         user_name = #{userName,jdbcType=VARCHAR},
       </if>
-      <if test="userStart != null">
-        user_start = #{userStart,jdbcType=SMALLINT},
+      <if test="userState != null">
+        user_state = #{userState,jdbcType=SMALLINT},
       </if>
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
@@ -63,9 +63,9 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
 
-  <select id="getLoginUserAll" resultType="java.lang.Integer">
-     select count(1) from
-     login_user
+  <select id="getLoginUserAll" parameterType="cn.qingjiu.yys.entity.PublicParam" resultType="cn.qingjiu.yys.entity.LoginUser">
+     select <include refid="Base_Column_List"/>
+     from login_user
      <where>
        user_state = 1
        <if test="loginUserNo != null and loginUserNo != ''">

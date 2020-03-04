@@ -9,6 +9,7 @@ import cn.qingjiu.yys.util.Md5;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -33,9 +34,9 @@ public class LoginUserService {
     */
     public JsonResult<String> getUserDetailed(PublicParam search){
         search.setPassword(Md5.getMD5(search.getPassword()));
-        Integer count = loginUserMapper.getLoginUserAll(search);
+        LoginUser user = loginUserMapper.getLoginUserAll(search);
         JsonResult<String> js = new JsonResult<>();
-        if(count == 1){
+        if(user != null){
             js.setData("ok");
         }
         return js;

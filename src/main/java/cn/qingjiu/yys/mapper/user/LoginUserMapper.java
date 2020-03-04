@@ -22,5 +22,5 @@ public interface LoginUserMapper {
 
     int updateByPrimaryKeySelective(LoginUser record);
 
-    Integer getLoginUserAll(PublicParam search);
+    LoginUser getLoginUserAll(PublicParam search);
 }
