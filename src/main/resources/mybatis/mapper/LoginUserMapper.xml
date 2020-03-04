@@ -6,26 +6,16 @@
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
     <result column="user_start" jdbcType="SMALLINT" property="userStart" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="user_no" jdbcType="VARCHAR" property="userNo" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, user_name, user_start, create_time
+    id, user_name, user_start, create_time,password,user_no
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from login_user
-    where id = #{id,jdbcType=INTEGER}
-  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from login_user
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="cn.qingjiu.yys.entity.LoginUser">
-    insert into login_user (id, user_name, user_start, 
-      create_time)
-    values (#{id,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{userStart,jdbcType=SMALLINT}, 
-      #{createTime,jdbcType=TIMESTAMP})
-  </insert>
   <insert id="insertSelective" parameterType="cn.qingjiu.yys.entity.LoginUser">
     insert into login_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -72,15 +62,18 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="cn.qingjiu.yys.entity.LoginUser">
-    update login_user
-    set user_name = #{userName,jdbcType=VARCHAR},
-      user_start = #{userStart,jdbcType=SMALLINT},
-      create_time = #{createTime,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
 
-  <select id="getLoginUserAll" resultType="cn.qingjiu.yys.entity.LoginUser">
-    select * from login_user
+  <select id="getLoginUserAll" resultType="java.lang.Integer">
+     select count(1) from
+     login_user
+     <where>
+       user_state = 1
+       <if test="loginUserNo != null and loginUserNo != ''">
+        and user_no = #{loginUserNo}
+       </if>
+       <if test="password != null and password != ''">
+        and password = #{password}
+       </if>
+     </where>
   </select>
 </mapper>

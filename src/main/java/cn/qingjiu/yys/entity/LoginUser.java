@@ -1,11 +1,9 @@
 package cn.qingjiu.yys.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.sql.Timestamp;
-import java.util.Date;
 /**
 * @Description: 用户信息主表
 * @Author: tjy
@@ -18,7 +16,11 @@ public class LoginUser {
 
     private String userName;
 
+    private String userNo;
+
     private Integer userStart;
+
+    private String password;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss" ,timezone = "GMT+8")
     private Timestamp createTime;
