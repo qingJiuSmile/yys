@@ -22,6 +22,7 @@ public class SwaggerConf {
     public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
+                .enable(true)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("cn.qingjiu.yys.web"))
                 .paths(PathSelectors.any())
