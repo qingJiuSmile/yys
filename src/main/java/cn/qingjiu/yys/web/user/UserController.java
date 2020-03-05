@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/user")
 @Api(description = "用户相关")
-public class LoginUserController {
+public class UserController {
 
     @Autowired
     private LoginUserService loginUserService;
@@ -34,5 +34,10 @@ public class LoginUserController {
             return new JsonResult<>();
         }
         return loginUserService.getUserDetailed(search);
+    }
+
+    @RequestMapping("/test")
+    public String test(){
+        return "test";
     }
 }
