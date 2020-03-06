@@ -6,6 +6,13 @@ spring:
     username: postgres
     password: root
     url: jdbc:postgresql://localhost:5432/postgres
+    mvc:
+      view:
+        prefix: /
+        suffix: .html
+  thymeleaf:
+    cache: false
+    prefix: classpath:/static/
 mybatis:
   mapper-locations: classpath:mybatis/mapper/*.xml
   config-location: classpath:mybatis/mybatis-config.xml
